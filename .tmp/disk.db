@@ -1,26 +1,15 @@
 {
   "data": {
-    "contact": [
-      {
-        "nev": "Ákos",
-        "datum": "1222-12-12",
-        "telszam": "35325235",
-        "mail": "madfginer",
-        "user": 1,
-        "createdAt": "2015-11-08T15:58:48.671Z",
-        "updatedAt": "2015-11-08T15:58:48.671Z",
-        "id": 1
-      }
-    ],
+    "contact": [],
     "user": [
       {
-        "surname": "Mark",
-        "forename": "Mark",
-        "username": "madromark",
-        "password": "$2a$10$XF5G/akUaAlsYGr2uO2HA.jmZzahwnILtDNxTwSjcNGK5WqN6D5B2",
+        "surname": "Selenium",
+        "forename": "Ide",
+        "username": "selenium",
+        "password": "$2a$10$KvnJv.tTLp209KVf/39.luJx43fFxPABrNYose14sDk3w0mNh6JoG",
         "role": "riporter",
-        "createdAt": "2015-11-08T15:58:29.746Z",
-        "updatedAt": "2015-11-08T15:58:29.746Z",
+        "createdAt": "2015-11-08T18:09:43.171Z",
+        "updatedAt": "2015-11-08T18:09:43.171Z",
         "id": 1
       }
     ]
@@ -98,9 +87,7 @@
     }
   },
   "counters": {
-    "contact": {
-      "id": 1
-    },
+    "contact": {},
     "user": {
       "id": 1
     }
