@@ -1,0 +1,43 @@
+<a href="/list" class="">
+  <h1>Névjegyzék</h1>
+</a>
+<div class="panel">
+  <form method="get" action="/list" >
+    <div class="form-group">
+      <div class="col-lg-6 col-lg-offset-2">
+        <input type="text" class="form-control" 
+               name="query" id="search" 
+               {{#if query}}
+               value="{{query}}"
+               {{/if}}
+               placeholder="Írja be a nevet amit keres">
+      </div>
+      <div class="col-lg-2">
+        <input type="submit" class="btn btn-primary" value="Keresés">
+      </div>
+    </div>
+  </form>
+</div>
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Név</th>
+      <th>Telefonszám</th>
+      <th>E-mail</th>
+      <th>Születésnap</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each data as |ember|}}
+    <tr>
+      <td>{{ember.nev}}</td>
+      <td>{{ember.telszam}}</td>
+      <td>{{ember.mail}}</td>
+      <td>{{ember.datum}}</td>
+      <td>
+        <a href="/delete/{{ember.id}}">Törlés</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table> 

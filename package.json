@@ -1,0 +1,36 @@
+{
+  "name": "contactlist",
+  "version": "1.0.0",
+  "description": "Névjegyzék személyek adatainak (telefonszám, email cím, születési idő) tárolására",
+  "main": "index.js",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.14.1",
+    "connect-flash": "^0.1.1",
+    "chai": "^3.4.0",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "express-validator": "^2.18.0",
+    "hbs": "^4.0.0",
+    "passport": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "sails-disk": "^0.10.8",
+    "waterline": "^0.10.26"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madromark/ContactList.git"
+  },
+  "author": "madromark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/madromark/ContactList/issues"
+  },
+  "homepage": "https://github.com/madromark/ContactList#readme"
+}

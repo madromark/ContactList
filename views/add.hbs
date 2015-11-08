@@ -1,0 +1,44 @@
+<h1>Hozzáadás</h1>
+<form class="form-horizontal col-lg-8 col-lg-offset-2"
+      method="post" action="/add">
+  <fieldset>
+    <div class="form-group">
+      <label for="nev" class="col-lg-2 control-label">Név: </label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" 
+               name="nev" id="nev" 
+               placeholder="Minta Béla" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="telszam" class="col-lg-2 control-label">Telefonszám: </label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" 
+               name="telszam" id="telszam"
+               required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="mail" class="col-lg-2 control-label">E-mail: </label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" 
+               name="mail" id="mail"
+               >
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="datum" class="col-lg-2 control-label">Dátum: </label>
+      <div class="col-lg-10">
+        <input type="date" class="form-control" 
+               name="datum" id="datum"
+               >
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-8 col-lg-offset-2">
+        <button type="reset" class="btn btn-default pull-left">Mégse</button>
+        <button type="submit" class="btn btn-primary pull-right">Hozzáadás</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
