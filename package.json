@@ -1,6 +1,6 @@
 {
   "name": "contactlist",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Névjegyzék személyek adatainak (telefonszám, email cím, születési idő) tárolására",
   "main": "index.js",
   "dependencies": {
@@ -22,7 +22,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "node index.js"
+    "start": "node index"
   },
   "repository": {
     "type": "git",
