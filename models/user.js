@@ -22,10 +22,6 @@ module.exports = Waterline.Collection.extend({
             type: 'string',
             required: true,
         },
-        avatar: {
-            type: 'string',
-            url: true,
-        },
         role: {
             type: 'string',
             enum: ['riporter', 'operator'],
