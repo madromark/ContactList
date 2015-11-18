@@ -2,7 +2,7 @@ var expect = require("chai").expect;
 
 var Waterline = require('waterline');
 var userCollection = require('./user');
-var birthdayCollection = require('./birthday');
+var contactCollection = require('./contact');
 var diskAdapter = require('sails-disk');
 var bcrypt = require('bcryptjs');
 
@@ -27,8 +27,7 @@ before(function (done) {
     var orm = new Waterline();
 
     orm.loadCollection(userCollection);
-    orm.loadCollection(birthdayCollection);
-    //waterlineConfig.connections.default.adapter = 'memory';
+    orm.loadCollection(contactCollection);
 
     orm.initialize(ormConfig, function(err, models) {
         if(err) throw err;
@@ -41,7 +40,7 @@ describe('UserModel', function () {
 
     beforeEach(function (done) {
         User.destroy({
-            neptun: 'abcdef'
+            username: 'abcdef'
         }, function (err) {
             if (err) throw err;
             done();
@@ -54,24 +53,22 @@ describe('UserModel', function () {
     
     it('should be able to create a user', function () {
         return User.create({
-            neptun: 'abcdef',
+            username: 'abcdef',
             password: 'jelszo',
             surname: 'Gipsz',
             forename: 'Jakab',
-            avatar: '',
         })
         .then(function (user) {
-            expect(user.neptun).to.equal('abcdef');
+            expect(user.username).to.equal('abcdef');
             expect(bcrypt.compareSync('jelszo', user.password)).to.be.true;
             expect(user.surname).to.equal('Gipsz');
             expect(user.forename).to.equal('Jakab');
-            expect(user.avatar).to.equal('');
         });
     });
     
     it('should throw an error', function () {
         return expect(User.create({
-            neptun: 'abcdef',
+            username: 'abcdef',
             password: 'jelszo',
             surname: 'Gipsz',
             forename: 'Jakab',
@@ -84,7 +81,7 @@ describe('UserModel', function () {
 describe('validPassword', function() {
     beforeEach(function (done) {
         User.destroy({
-            neptun: 'abcdef'
+            username: 'abcdef'
         }, function (err) {
             if (err) throw err;
             done();
@@ -93,22 +90,20 @@ describe('validPassword', function() {
     
     it('should return true with right password', function() {
          return User.create({
-                neptun: 'abcdef',
+                username: 'abcdef',
                 password: 'jelszo',
                 surname: 'Gipsz',
                 forename: 'Jakab',
-                avatar: '',
             }).then(function(user) {
                 expect(user.validPassword('jelszo')).to.be.true;
             })
     });
     it('should return false with wrong password', function() {
          return User.create({
-                neptun: 'abcdef',
+                username: 'abcdef',
                 password: 'jelszo',
                 surname: 'Gipsz',
                 forename: 'Jakab',
-                avatar: '',
             }).then(function(user) {
                 expect(user.validPassword('titkos')).to.be.false;
             })

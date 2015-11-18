@@ -1,6 +1,5 @@
 {
   "data": {
-    "contact": [],
     "user": [
       {
         "surname": "Selenium",
@@ -11,10 +10,127 @@
         "createdAt": "2015-11-08T18:09:43.171Z",
         "updatedAt": "2015-11-08T18:09:43.171Z",
         "id": 1
+      },
+      {
+        "surname": "admin",
+        "forename": "admin",
+        "username": "admin",
+        "password": "$2a$10$KNb2rZCyD1.4qIY4WQX8Kuzi4bAbmTJNFRJzGTtBRF5hn.2VzBcFy",
+        "role": "riporter",
+        "createdAt": "2015-11-18T20:48:41.581Z",
+        "updatedAt": "2015-11-18T20:48:41.581Z",
+        "id": 2
+      },
+      {
+        "username": "abcdef",
+        "password": "$2a$10$3uOIGa2fti2Z6HVe3PbuUuybDQVWbFnoXm.okb.0aEA4uVasre7tS",
+        "surname": "Gipsz",
+        "forename": "Jakab",
+        "role": "riporter",
+        "createdAt": "2015-11-18T23:05:00.848Z",
+        "updatedAt": "2015-11-18T23:05:00.848Z",
+        "id": 5
+      }
+    ],
+    "contact": [
+      {
+        "nev": "Minta Béla",
+        "datum": "2015-11-11",
+        "telszam": "2412412",
+        "mail": "mdgmaewrgmrew",
+        "user": 2,
+        "createdAt": "2015-11-18T20:49:00.114Z",
+        "updatedAt": "2015-11-18T20:49:00.114Z",
+        "id": 1
+      },
+      {
+        "nev": "Péter",
+        "datum": "2015-11-10",
+        "telszam": "2421421",
+        "mail": "gfenagnrae",
+        "user": 2,
+        "createdAt": "2015-11-18T21:54:12.047Z",
+        "updatedAt": "2015-11-18T21:54:12.047Z",
+        "id": 2
+      },
+      {
+        "nev": "Minta Gábor",
+        "datum": "2015-11-11",
+        "telszam": "543543",
+        "mail": "mdgmaewrgmrew",
+        "user": 2,
+        "createdAt": "2015-11-18T22:00:42.936Z",
+        "updatedAt": "2015-11-18T22:00:42.936Z",
+        "id": 3
+      },
+      {
+        "nev": "gagaew",
+        "datum": "2015-10-31",
+        "telszam": "gewgwe",
+        "mail": "gewagw",
+        "user": 2,
+        "createdAt": "2015-11-18T22:06:30.686Z",
+        "updatedAt": "2015-11-18T22:06:30.687Z",
+        "id": 5
+      },
+      {
+        "nev": "Minta Bélaaaaa",
+        "datum": "2015-11-11",
+        "telszam": "2412412",
+        "mail": "mdgmaewrgmrew",
+        "user": 2,
+        "createdAt": "2015-11-18T22:17:33.318Z",
+        "updatedAt": "2015-11-18T22:17:33.318Z",
+        "id": 15
+      },
+      {
+        "nev": "Minta Bélawwwwww",
+        "datum": "2015-11-11",
+        "telszam": "2412412",
+        "mail": "mdgmaewrgmrew",
+        "user": 2,
+        "createdAt": "2015-11-18T22:59:48.206Z",
+        "updatedAt": "2015-11-18T22:59:48.206Z",
+        "id": 18
       }
     ]
   },
   "schema": {
+    "user": {
+      "username": {
+        "type": "string",
+        "unique": true
+      },
+      "password": {
+        "type": "string"
+      },
+      "surname": {
+        "type": "string"
+      },
+      "forename": {
+        "type": "string"
+      },
+      "role": {
+        "type": "string",
+        "enum": [
+          "riporter",
+          "operator"
+        ],
+        "defaultsTo": "riporter"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
     "contact": {
       "nev": {
         "type": "string"
@@ -46,50 +162,14 @@
       "updatedAt": {
         "type": "datetime"
       }
-    },
-    "user": {
-      "username": {
-        "type": "string",
-        "unique": true
-      },
-      "password": {
-        "type": "string"
-      },
-      "surname": {
-        "type": "string"
-      },
-      "forename": {
-        "type": "string"
-      },
-      "avatar": {
-        "type": "string"
-      },
-      "role": {
-        "type": "string",
-        "enum": [
-          "riporter",
-          "operator"
-        ],
-        "defaultsTo": "riporter"
-      },
-      "id": {
-        "type": "integer",
-        "autoIncrement": true,
-        "primaryKey": true,
-        "unique": true
-      },
-      "createdAt": {
-        "type": "datetime"
-      },
-      "updatedAt": {
-        "type": "datetime"
-      }
     }
   },
   "counters": {
-    "contact": {},
+    "contact": {
+      "id": 18
+    },
     "user": {
-      "id": 1
+      "id": 5
     }
   }
 }

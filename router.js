@@ -130,6 +130,60 @@ router.route('/add')
         //console.log(req.session.data);
     });
     
+router.route('/edit/:id')
+    .get(ensureAuthenticated, function (req, res) {
+        req.app.Models.contact.find({ id: req.params.id })
+        .then(function (data) {
+            
+            //console.log(data);
+            //console.log(data[0].nev);
+            
+            res.render('edit', {
+                title: 'Szerkesztés',
+                nev: data[0].nev,
+                telszam: data[0].telszam,
+                mail: data[0].mail,
+                datum: data[0].datum,
+            });  
+            
+        })
+        .catch(function () {
+            console.log('Hiba!!');
+            throw 'error';
+        })
+    })
+    .post(ensureAuthenticated, function (req, res) {
+        console.log("ittvagyok");
+        req.checkBody('nev', 'Nem adott meg nevet')
+            .notEmpty();
+        req.checkBody('telszam', 'Nem adott meg telefonszámot')
+            .notEmpty();
+        req.checkBody('datum', 'Hiba a születésnappal')
+            .isDate()
+            .withMessage('Nem megfelelő dátumformátum');
+        
+        if (req.validationErrors()) {
+            req.validationErrors().forEach(function (error) {
+                req.flash('error', error.msg);
+            });
+            res.redirect('/edit');
+        } else {
+            req.app.Models.contact.find({ id: req.params.id })
+                .then(function (data) {
+                    data[0].nev = req.params.nev 
+                })
+            .then(function () {
+                req.flash('success', 'Névjegy módosítva');
+                res.redirect('/list');
+            })
+            .catch(function () {
+                req.flash('error', 'Névjegy módosítás sikertelen!');
+                res.redirect('/edit');
+            });
+        }
+        console.log(req.session.data);
+    });
+    
 router.use('/delete/:id', ensureAuthenticated, function (req, res) {
         /*req.session.data = req.session.data || [];
         req.session.data = req.session.data.filter(function (elem) {
